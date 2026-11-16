@@ -114,7 +114,7 @@ def interval(point, E):
         hi = np.where(mean > 0, np.percentile(E, 90, axis=1) / mean, 1.0)
     return point * lo, point * hi
 
-@st.cache_data
+@st.cache_resource
 def load():
     h = pd.read_parquet("harmonized.parquet")
     for c in ECOLS:
