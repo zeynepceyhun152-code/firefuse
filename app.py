@@ -331,3 +331,16 @@ with tab5:
     pts = pts[contains_xy(geom, pts.longitude.values, pts.latitude.values)]
     st.write(f"**{len(pts):,}** {T['raw_n']}")
     st.download_button(T["dl_raw"], pts.to_csv(index=False).encode(), "hotspots.csv", "text/csv", use_container_width=True)
+
+
+# --- AI-use label (bottom-right corner) ---
+st.markdown(
+    """
+    <div style="position:fixed; right:14px; bottom:10px; z-index:999;
+                font-size:12px; color:#888; background:rgba(255,255,255,.85);
+                padding:4px 10px; border-radius:8px;">
+        SI-generated: the frontend was built with the help of Claude AI
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
